@@ -14,7 +14,7 @@ var authenticate = function (loginObj ,callback) {
       return;
     }
     if (result === null) {
-      var error = new Error("Message: No Admin  Found. All Requested.");
+      var error = new Error("Message: No admin  Found. All Requested.");
       error.status = 404;
       callback(error);
       return;
