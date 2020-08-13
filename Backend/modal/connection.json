@@ -1,4 +1,4 @@
-export default  {
+{
   "production": {
   "url": "",
     "port": "",
@@ -9,15 +9,15 @@ export default  {
   "development": {
   "url": "localhost",
     "port": "27017",
-    "db": "interview",
+    "db": "Interview",
     "user": "",
     "password": ""
 },
   "test": {
   "url": "localhost",
     "port": "27017",
-    "db": "interview",
+    "db": "Interview",
     "user": "",
     "password": ""
 }
-};
+}
