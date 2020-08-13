@@ -10,8 +10,8 @@ var authenticate = function (loginObj ,callback) {
   mongo.admin.findOne({Email:loginObj.Email}).then(function (result, err) {
     console.log(' err: ', err, ' result: ', result);
     if (err) {
-      callback(err);
-      return;
+      return callback(err);
+
     }
     if (result === null) {
       var error = new Error("Message: No admin  Found. All Requested.");
@@ -19,12 +19,11 @@ var authenticate = function (loginObj ,callback) {
       callback(error);
       return;
     }
-
-    if(bcrypt.compareSync(loginObj.password, result.password))
+      console.log(' login: ', loginObj);
+    if(bcrypt.compareSync(loginObj.Password, result.Password))
       return callback(null,{ result: result, status: true});
     else
       return callback(null,{ result: result, status: false})
-
   });
 };
 

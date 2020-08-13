@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './admin/Component/sidebar/sidebar.component';
 import { LoginComponent } from './admin/Component/login/login.component';
 import { DashboardComponent } from './admin/Component/dashboard/dashboard.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DashboardComponent } from './admin/Component/dashboard/dashboard.compon
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

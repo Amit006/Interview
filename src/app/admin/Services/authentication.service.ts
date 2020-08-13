@@ -18,7 +18,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     this.currentAdminSubject = new BehaviorSubject<Admin>(JSON.parse(localStorage.getItem('currentAdmin')));
     this.currentAdmin = this.currentAdminSubject.asObservable();
-    this.apiUrl = environment.apiUrl + `/admin/authenticate`;
+    this.apiUrl = environment.apiUrl + `/Login`;
   }
 
   public get currentAdminValue(): Admin {
@@ -28,22 +28,17 @@ export class AuthenticationService {
 
 
   login(email: string, password: string): any {
-    return this.http.post<any>(this.apiUrl, { email, password }, environment.httpOptions)
-      .pipe(map(Admin => {
-        console.log(' Admin: ', Admin);
+    return this.http.post<any>(this.apiUrl, { Email: email, Password: password }, environment.httpOptions)
+      .pipe(map(AdminData => {
+        console.log(' Admin: ', AdminData);
         // login successful if there's a jwt token in the response
-        if (Admin.result.status) {
+        if (AdminData.status) {
           // store Admin details and jwt token in local storage to keep Admin logged in between page refreshes
-          localStorage.setItem('currentAdmin', JSON.stringify(Admin.result.result));
-          const stringData = JSON.stringify({name: 'Amit' });
-          localStorage.setItem('currentAdmin_id', stringData);
-          console.log(' localstorageItem: ', localStorage.getItem('currentAdmin'));
-          console.log(' Admin.result.result: ', Admin.result.result);
-          console.log(' stringData ', stringData);
-          this.currentAdminSubject.next(Admin.result.result);
+          localStorage.setItem('currentAdmin', JSON.stringify(AdminData.result));
+          this.currentAdminSubject.next(AdminData.result);
+          return AdminData.status;
         }
-
-        return Admin.result.status;
+        return AdminData.status;
       }));
   }
 

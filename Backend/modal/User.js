@@ -88,10 +88,11 @@ var authenticate = function (loginObj ,callback) {
         callback({ msg: "Message: No User  Found. All Requested."});
       }
 
-      if (bcrypt.compareSync(loginObj.Password, result.Password))
+      if (bcrypt.compareSync(loginObj.Password, result.Password)) {
         return callback(null, {result: result, status: true});
-      else
+      } else {
         return callback(null, {result: result, status: false})
+        }
     });
   } else {
     callback({ msg: validation.errors}, null);
