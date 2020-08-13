@@ -1,0 +1,41 @@
+Index: mongoDatabase/dump/Interview/Admin.metadata.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- mongoDatabase/dump/Interview/Admin.metadata.json	(date 1597323909343)
++++ mongoDatabase/dump/Interview/Admin.metadata.json	(date 1597323909343)
+@@ -0,0 +1,1 @@
++{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"Interview.Admin"}],"uuid":"81c8320c27c74eb3b70927b8fba24a73"}
+\ No newline at end of file
+Index: mongoDatabase/dump/Interview/User.metadata.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- mongoDatabase/dump/Interview/User.metadata.json	(date 1597323909343)
++++ mongoDatabase/dump/Interview/User.metadata.json	(date 1597323909343)
+@@ -0,0 +1,1 @@
++{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"Interview.User"}],"uuid":"75950d062dda431f80d83cb5870f353c"}
+\ No newline at end of file
+diff --git mongoDatabase/dump/Interview/Admin.bson mongoDatabase/dump/Interview/Admin.bson
+new file mode 100644
+index 0000000000000000000000000000000000000000..0b5b0f1400958f361906773d1423bcd57284f8cf
+GIT binary patch
+literal 127
+zc$}+eU|?X6&rD&6H&u$5ryo-DL{n}ylWT5bW)6ceP%beyvm`Iu(9$6tB&3&|pUc1$
+zkXT$?o?n#0U<*{BVw9+2XrNN&<mvB`Wa5%xmK;<ToUHE_7MPsrZ;+qn6RGdzlboM!
+aZdRb@loOKd>zrxg>1^QT8<bedzyJUV$Rwly
+
+diff --git mongoDatabase/dump/Interview/User.bson mongoDatabase/dump/Interview/User.bson
+new file mode 100644
+index 0000000000000000000000000000000000000000..dab667f1a6d6b94c6004d205848f49e5f4953389
+GIT binary patch
+literal 412
+zc$}?{%}&BV6h^O;2vK8LxN*sX#EqdpAkYPgw1|TIC>V{a<}w{%r0tNI0n<nD4P5v(
+z#`khSeFL}WoP76w>;dFM9zl3<Ryb|G<laBO-bjZ_rNbd64E6z_m2eHDkAEy@*bp<e
+z1ag%ikKyDuN|%mzIp3l(6$y}56iKEO6pX({$??2+D`H$~1TxX685|q)#FQ>hSvtqK
+z2qfS-g9C$iC2rF|tWzyB$Q#;CBaSA!TZoi}!*w!c5)O^<>J``Z>Rtm#+boA-7W!Q3
+z1soaaI+oqA9M7x#9A2y4Sc_`DVL(=>)T@vYGz~1dSaR&r#_x`9rq%YMM#q~8wK|XY
+kl#gsN>pxq)J{9wNZB_Q;2RaCNwHw&I!5B01*S}4{Hw6T60ssI2
+
