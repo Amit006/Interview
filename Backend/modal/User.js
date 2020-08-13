@@ -123,12 +123,11 @@ var SignUpUser  = function ( data, callback ){
           "Country": 'required',
           "Phone_Number": 'required',
           "Date_of_Birth": 'required',
-          "Status":'required',
         }
         let validation = new Validator(data, rules1);
 
         if(validation.passes()) {
-           mongo.User.insertOne(data).then(function (result, err) {
+           mongo.User.insertOne(Object.assign(data, {"Status": "Active"})).then(function (result, err) {
             if (err) {
               callback('Unable to SignUp User ');
               return
