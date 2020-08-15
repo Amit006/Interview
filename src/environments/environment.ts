@@ -7,7 +7,7 @@ import {HttpHeaders} from '@angular/common/http';
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:3000/admin',
-  apiUrlUser: 'http://localhost:3000/users',
+  apiUrlUser: 'http://localhost:3000/user',
   mongoConfig: {
     url: 'localhost',
     port: 27017,

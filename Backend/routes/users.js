@@ -44,7 +44,7 @@ router.get('/getAllUser', function(req, res, next) {
 });
 
 router.post('/updateUser', function(req, res, next) {
-  UserService.updateUser(Obj, function(err, result){
+  UserService.updateUser(req.body, function(err, result){
     console.log('  err: ',err, ' result: ', result);
     if(err){
       return res.status(200).json({ msg: err})

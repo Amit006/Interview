@@ -10,6 +10,13 @@ import { SidebarComponent } from './admin/Component/sidebar/sidebar.component';
 import { LoginComponent } from './admin/Component/login/login.component';
 import { DashboardComponent } from './admin/Component/dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalComponent } from './_helper/modal/modal.component';
+import { ButtonRendererComponent } from './_helper/button-renderer/button-renderer.component';
+import {AgGridModule} from 'ag-grid-angular';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -18,16 +25,28 @@ import {HttpClientModule} from '@angular/common/http';
     HomeComponent,
     SidebarComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    ModalComponent,
+    ButtonRendererComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AgGridModule.withComponents([ButtonRendererComponent]),
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDialogModule
   ],
-  providers: [],
+  entryComponents: [ ModalComponent],
+  exports: [ModalComponent],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: []},
+    {provide: MatDialogRef, useValue: []}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,31 +5,31 @@ var mongo = require('./mongo');
 const bcrypt = require('bcrypt');
 let Validator = require('validatorjs');
 
-var updateUser = function (userId, DataObj, callback) {
-  if (ObjectId.isValid(userId) === false) {
+var updateUser = function (DataObj, callback) {
+  console.log(' dataObj:', DataObj);
+  if (ObjectId.isValid(DataObj._id) === false) {
     var error = new Error("Argument passed in must be a single String of 12 bytes or a string of 24 hex characters");
     error.status = 500;
     callback (error);
     return;
   }
   mongo.User.updateOne({
-      _id: new ObjectId(userId),
-      Email: DataObj.Email
+      _id: new ObjectId(DataObj._id),
     },
-    {$set: DataObj}, {w: 1}, function(err, result) {
+    {$set: DataObj.fieldData}, {w: 1}, function(err, result) {
       if (err) {
-        var error3 = new Error("Cannot update license. Try again.");
+        var error3 = new Error("Cannot update user. Try again.");
         error3.status = 403;
         callback (error3);
         return;
       }
       if (result.matchedCount !== 1) {
-        var error1 = new Error("No license was found.");
+        var error1 = new Error("No user was found.");
         error1.status = 404;
         callback (error1);
         return;
       } else if (result.modifiedCount !== 1) {
-        var error2 = new Error("No license was updated.");
+        var error2 = new Error("No user was updated.");
         error2.status = 404;
         callback (error2);
         return;
